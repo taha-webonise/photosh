@@ -1,6 +1,19 @@
+%h1 Users
 %ul
   - @users.each do |user|
     %li
       %span
         = user.first_name
         = user.last_name
+      = link_to 'albums', "/users/#{user.id}/albums"
+      = link_to 'photos', "/users/#{user.id}/photos"
+
+%a.showNewUserForm Create User
+
+= form_tag users_create_path, method: 'post' do
+  %span
+    = text_field_tag :first_name
+  %span
+    = text_field_tag :last_name
+  %span
+    = submit_tag "Create"

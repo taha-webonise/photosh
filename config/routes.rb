@@ -50,6 +50,10 @@ Photosh::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'user#index'
   match '/users' => 'user#index'
+  match '/users/:id/albums' => 'album#index'
+  match '/users/create' => 'user#create'
+  match '/users/:id/photos' => 'photo#index'
+  match '/users/:id/albums/create' => 'album#create'
 
   # See how all your routes lay out with "rake routes"
 

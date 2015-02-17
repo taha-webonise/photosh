@@ -1,0 +1,14 @@
+%h1 Albums
+%ul
+  - @albums.each do |album|
+    %li
+      %span
+        = album.name
+
+%a.showNewUserForm Create Album
+
+= form_tag "/users/#{@user.id}/albums/create", method: 'post' do
+  %span
+    = text_field_tag :name
+  %span
+    = submit_tag "Create"
